@@ -3,3 +3,5 @@ crewai-tools
 openai
 python-dotenv
 google-generativeai
+setuptools 
+packaging
