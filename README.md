@@ -139,6 +139,7 @@ The **AI-Powered Travel Planner** is a **cutting-edge AI tool** for effortless t
 ## 💬 Have Questions?  
 
 🔹 Open an **Issue** on GitHub  
-🔹 Reach out on **Medium**  
+🔹 Reach out on **Medium**: [Itinerary Travel Planner](https://medium.com/@swagatmohanty2018/building-an-ai-powered-itinerary-how-to-automate-itinerary-planning-with-crewai-and-google-77f823a712dc)
+
 
 🚀 **Happy Traveling!** ✈️🌍
