@@ -118,7 +118,7 @@ ngrok http 5000
 ## 📖 Read Our Full Article on Medium  
 
 We have published a detailed **guide & walkthrough** of this project. Read it on **Medium**:  
-👉 [**Read Here (Demo Link)**](https://medium.com/@your-username/travel-planner-ai-demo)  
+👉 [Itinerary Travel Planner](https://medium.com/@swagatmohanty2018/building-an-ai-powered-itinerary-how-to-automate-itinerary-planning-with-crewai-and-google-77f823a712dc)  
 
 📌 *(This is a placeholder; update with the actual link after publishing the article.)*  
 
@@ -139,7 +139,6 @@ The **AI-Powered Travel Planner** is a **cutting-edge AI tool** for effortless t
 ## 💬 Have Questions?  
 
 🔹 Open an **Issue** on GitHub  
-🔹 Reach out on **Medium**: [Itinerary Travel Planner](https://medium.com/@swagatmohanty2018/building-an-ai-powered-itinerary-how-to-automate-itinerary-planning-with-crewai-and-google-77f823a712dc)
-
+🔹 Reach out on **[LinkedIn](https://www.linkedin.com/in/swagat-mohanty-2001-p)**  
 
 🚀 **Happy Traveling!** ✈️🌍
