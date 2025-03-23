@@ -1,140 +1,188 @@
-📌 Project: AI-Powered Travel Planner  
-This project is an AI-based travel planning tool built using Streamlit and CrewAI to help users   
-plan trips efficiently. It uses LLMs (Gemini-1.5-Flash), real-time search tools (Serper API), and  
-AI Agents to generate an itinerary, budget, and research details.
+;; 📌 Project: AI-Powered Travel Planner  
 
-🚀 Technologies & Frameworks Used  
-- Python 🐍 (Backend)
+;; This project is an AI-based travel planning tool built using Streamlit and CrewAI to help users   
+;; plan trips efficiently. It uses LLMs (Gemini-1.5-Flash), real-time search tools (Serper API), and  
+;; AI Agents to generate an itinerary, budget, and research details.
 
-- Streamlit 📊 (Frontend UI)
+;; 🚀 Technologies & Frameworks Used 
 
-- CrewAI 🤖 (AI Agent Orchestration)
+;; - Python 🐍 (Backend)
+;; - Streamlit 📊 (Frontend UI)
+;; - CrewAI 🤖 (AI Agent Orchestration)
+;; - Serper API 🌍 (Real-time Travel & Search Data)
+;; - Google Gemini API 🔥 (AI Language Model)
+;; - Ngrok 🌎 (Local Web Hosting & Sharing)
 
-- Serper API 🌍 (Real-time Travel & Search Data)
+;; 🛠️ Detailed Explanation of Components  
+;; Now, let’s break down each component of your code step by step.
 
-- Google Gemini API 🔥 (AI Language Model)
+;; 1️⃣ Web Framework: Streamlit  
 
-- Ngrok 🌎 (Local Web Hosting & Sharing)
+;; - We use Streamlit to create a user-friendly web interface where users enter their travel
+;; destination and budget.
+;; - The UI includes input fields for the destination and budget, and a button to generate the 
+;; travel plan.
 
-🛠️ Detailed Explanation of Components  
-Now, let’s break down each component of your code step by step.
+;; 📌 Alternatives to Streamlit:  
 
-1️⃣ Web Framework: Streamlit  
-- We use Streamlit to create a user-friendly web interface where users enter their travel
-destination and budget.
+;; - Gradio – Another Python-based UI library for ML apps.
+;; - Dash – Good for building dashboards.
+;; - Flask or FastAPI – If you want more control over API endpoints.
 
-- The UI includes input fields for the destination and budget, and a button to generate the 
-travel plan.
+;; 2️⃣ AI Model: Google Gemini API  
 
-📌 Alternatives to Streamlit:  
+;; - We use Gemini-1.5-Flash, a lightweight but powerful LLM to generate responses for 
+;; different travel tasks.
 
-- Gradio – Another Python-based UI library for ML apps.
+;; - The model is controlled by LLM() from CrewAI and configured with:
+;;     - temperature=0.5 → Balanced creativity.
+;;     - verbose=True → Outputs detailed logs.
+;;     - api_key=os.environ.get("GOOGLE_API_KEY", "") → Uses environment variables for security.
 
-- Dash – Good for building dashboards.
+;; 📌 Alternative LLMs:  
 
-- Flask or FastAPI – If you want more control over API endpoints.
+;; - OpenAI GPT-4 or GPT-3.5 – More powerful but needs an API key.
+;; - Anthropic Claude – Good for conversational AI.
+;; - Mistral AI – Open-source, cheaper options.
+;; - Llama 3 (Meta AI) – Open-weight models for self-hosted solutions.
 
-2️⃣ AI Model: Google Gemini API  
-- We use Gemini-1.5-Flash, a lightweight but powerful LLM to generate responses for 
-different travel tasks.
+;; 3️⃣ Real-time Travel Search: Serper API  
 
-- The model is controlled by LLM() from CrewAI and configured with:
+;; - We use Serper API to fetch real-time travel information, such as:
+;;     - Popular sites to visit
+;;     - Public transportation and hotels
+;;     - Weather forecasts
 
-    - temperature=0.5 → Balanced creativity.
+;; - This is critical for keeping the itinerary up to date.
 
-    - verbose=True → Outputs detailed logs.
+;; 📌 Alternative APIs for Travel Data:  
 
-    - api_key=os.environ.get("GOOGLE_API_KEY", "") → Uses environment variables for security.
+;; - Google Places API – Find tourist spots, hotels, restaurants.
+;; - OpenWeather API – Fetch real-time weather data.
+;; - Skyscanner API – Find and compare flights.
+;; - Booking.com API – Fetch hotel prices & availability.
+;; - Amadeus API – Complete travel solutions (flights, hotels, etc.).
 
-📌 Alternative LLMs:  
+;; 4️⃣ AI Agents: CrewAI  
 
-- OpenAI GPT-4 or GPT-3.5 – More powerful but needs an API key.
+;; - CrewAI is used to create multiple agents, each with a specific role.
+;; - The three AI Agents in your project:
 
-- Anthropic Claude – Good for conversational AI.
+;; 1. Travel Researcher Agent 🔍  
+;;     - Finds tourist attractions, weather, and public transport for the given destination.
 
-- Mistral AI – Open-source, cheaper options.
+;; 2. Budget Planner Agent 💰
+;;     - Finds budget flights, hotels, and expenses to keep the trip within the user's budget.
 
-- Llama 3 (Meta AI) – Open-weight models for self-hosted solutions.
+;; 3. Itinerary Planner Agent 📅
+;;     - Creates a 3-day itinerary covering all major spots within the budget.
 
-3️⃣ Real-time Travel Search: Serper API  
-- We use Serper API to fetch real-time travel information, such as:
+;; 📌 Alternative AI Agent Frameworks:  
 
-    - Popular sites to visit
+;; - LangChain – More flexible for LLM-based AI agents.
+;; - AutoGPT/BabyAGI – More autonomous but harder to control.
+;; - Haystack – Good for RAG-based AI agents.
 
-    - Public transportation and hotels
+;; 5️⃣ AI Task Execution Process  
 
-    - Weather forecasts
+;; - Tasks are assigned to the agents with specific descriptions and expected outputs.
+;; - The Crew process is set to sequential, meaning:
+;;     - The Travel Researcher agent gathers data first.
+;;     - The Budget Planner ensures it fits the budget.
+;;     - The Itinerary Planner then finalizes the itinerary.
 
-- This is critical for keeping the itinerary up to date.
+;; 📌 Alternative Process Strategies:  
 
-📌 Alternative APIs for Travel Data:  
+;; - Parallel Execution – Run all agents simultaneously (useful for faster responses).
+;; - Recursive Reasoning – Agents re-evaluate based on new data.
+;; - Human-in-the-loop – Ask the user for confirmation before finalizing.
 
-- Google Places API – Find tourist spots, hotels, restaurants.
+;; 6️⃣ Deploying the Application: Ngrok  
 
-- OpenWeather API – Fetch real-time weather data.
+;; - Since Streamlit runs locally, we use Ngrok to create a public URL.
+;; - This lets users access the app without deploying it to a cloud server.
 
-- Skyscanner API – Find and compare flights.
+;; 📌 Alternative Deployment Methods:  
 
-- Booking.com API – Fetch hotel prices & availability.
+;; - Streamlit Cloud – Free, easy deployment for small apps.
+;; - Hugging Face Spaces – Great for AI models.
+;; - Heroku – Free-tier for small projects.
+;; - AWS/GCP/Azure – Best for scaling but requires cloud knowledge.
 
-- Amadeus API – Complete travel solutions (flights, hotels, etc.).
+;; 📂 Folder Structure:  
+;;   📦 Travel-Planner
+;;  ┣ 📜 app.py (Main Application)
+;;  ┣ 📜 requirements.txt (Dependencies)
+;;  ┣ 📜 README.md (Project Documentation)
+;;  ┗ 📜 .gitignore (Ignore Unnecessary Files)
 
-4️⃣ AI Agents: CrewAI  
-- CrewAI is used to create multiple agents, each with a specific role.
+;; 🚀 How to Run the Project
 
-- The three AI Agents in your project:
 
-1. Travel Researcher Agent 🔍  
 
-    - Finds tourist attractions, weather, and public transport for the given destination.
+# 🌍 AI-Powered Travel Planner 🚀  
 
-2. Budget Planner Agent 💰
+## 📌 Overview  
+The **AI-Powered Travel Planner** is an **agent-driven** trip planning tool that provides a **3-day itinerary**, **budget recommendations**, and **real-time travel insights** using **LLMs (Google Gemini-1.5-Flash)** and **Serper API for live search results**.  
 
-    - Finds budget flights, hotels, and expenses to keep the trip within the user's budget.
+This project leverages **CrewAI** to create **intelligent agents** that gather travel information, optimize budgets, and generate a travel itinerary—all through a **Streamlit-based web interface**.  
 
-3. Itinerary Planner Agent 📅
+---
 
-    - Creates a 3-day itinerary covering all major spots within the budget.
+## 🔧 Technologies Used  
 
-📌 Alternative AI Agent Frameworks:  
+- **Python** 🐍 (Backend)  
+- **Streamlit** 📊 (Frontend UI)  
+- **CrewAI** 🤖 (AI Agent Orchestration)  
+- **Serper API** 🌍 (Real-time Travel Search)  
+- **Google Gemini API** 🔥 (AI Language Model)  
+- **Ngrok** 🌎 (Public Web Access)  
 
-- LangChain – More flexible for LLM-based AI agents.
+---
 
-- AutoGPT/BabyAGI – More autonomous but harder to control.
+## 📜 Features  
 
-- Haystack – Good for RAG-based AI agents.
+✅ **Real-time Travel Research** (Tourist spots, weather, transport)  
+✅ **Budget Planning** (Hotels, flights, expenses breakdown)  
+✅ **3-Day Itinerary Generation** (AI-powered recommendations)  
+✅ **Interactive Web UI** (Streamlit-based)  
+✅ **AI-Powered Agents** (CrewAI for research & planning)  
+✅ **Public Access via Ngrok**  
 
-5️⃣ AI Task Execution Process  
-- Tasks are assigned to the agents with specific descriptions and expected outputs.
+---
 
-- The Crew process is set to sequential, meaning:
+## 📂 Project Structure  
 
-    - The Travel Researcher agent gathers data first.
+📦 Travel-Planner
+┣ 📜 app.py (Main Application)
+┣ 📜 requirements.txt (Dependencies)
+┣ 📜 README.md (Project Documentation)
+┗ 📜 .gitignore (Ignore Unnecessary Files)
 
-    - The Budget Planner ensures it fits the budget.
 
-    - The Itinerary Planner then finalizes the itinerary.
+---
 
-📌 Alternative Process Strategies:  
+## 🛠 How It Works  
 
-- Parallel Execution – Run all agents simultaneously (useful for faster responses).
+### **1️⃣ Web Interface (Streamlit)**  
+- Users enter a **destination & budget**.  
+- Click **"Generate Itinerary"** to start the planning process.  
 
-- Recursive Reasoning – Agents re-evaluate based on new data.
+### **2️⃣ AI Agents (CrewAI)**  
+- **Travel Researcher Agent** → Fetches **tourist attractions, weather, transport**.  
+- **Budget Planner Agent** → Finds **hotels, flights, cost estimates**.  
+- **Itinerary Planner Agent** → Combines all data into a **3-day travel plan**.  
 
-- Human-in-the-loop – Ask the user for confirmation before finalizing.
+### **3️⃣ Real-time Search (Serper API)**  
+- Fetches **live travel info** (flights, hotels, places to visit).  
 
-6️⃣ Deploying the Application: Ngrok  
-- Since Streamlit runs locally, we use Ngrok to create a public URL.
+### **4️⃣ AI Model (Gemini-1.5-Flash)**  
+- Generates **natural language responses** for itinerary planning.  
 
-- This lets users access the app without deploying it to a cloud server.
+---
 
-📌 Alternative Deployment Methods:  
+## 🔌 Installation & Setup  
 
-- Streamlit Cloud – Free, easy deployment for small apps.
-
-- Hugging Face Spaces – Great for AI models.
-
-- Heroku – Free-tier for small projects.
-
-- AWS/GCP/Azure – Best for scaling but requires cloud knowledge.
-
+### **1️⃣ Install Dependencies**  
+```bash
+pip install streamlit crewai crewai-tools pyngrok
